@@ -1,0 +1,11 @@
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 初始化数据库脚本
+#    schema: classpath:db/schema-h2.sql
+    # 初始化数据脚本
+#    data: classpath:db/data-h2.sql
+    url: jdbc:mysql://49.232.24.37:3306/test?userUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: txyMysql
