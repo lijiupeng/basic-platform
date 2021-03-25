@@ -1,8 +1,10 @@
 package com.ljp.basicplatform.system.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.ljp.basicplatform.system.dto.SysUserDto;
 import com.ljp.basicplatform.system.entity.SysUser;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ljp.basicplatform.system.vo.SysUserVO;
 
 /**
  * <p>
@@ -14,5 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ISysUserService extends IService<SysUser> {
 
-    Page<SysUser> getPageListByUser();
+    Page<SysUserVO> getPageListByUser(SysUserDto sysUserDto);
 }

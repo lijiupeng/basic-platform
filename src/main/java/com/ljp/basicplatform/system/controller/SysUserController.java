@@ -2,6 +2,7 @@ package com.ljp.basicplatform.system.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.ljp.basicplatform.system.dto.SysUserDto;
 import com.ljp.basicplatform.system.entity.SysUser;
 import com.ljp.basicplatform.system.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,8 @@ public class SysUserController {
     private ISysUserService iSysUserService;
 
     @GetMapping("get")
-    public Page<SysUser> getList() {
-        return iSysUserService.getPageListByUser();
+    public Page<SysUser> getList(SysUserDto sysUserDto) {
+        return iSysUserService.getPageListByUser(sysUserDto);
     }
 
 }
