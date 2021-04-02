@@ -3,15 +3,13 @@ package com.ljp.basicplatform.system.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ljp.basicplatform.system.dto.SysUserDto;
-import com.ljp.basicplatform.system.entity.SysUser;
 import com.ljp.basicplatform.system.service.ISysUserService;
+import com.ljp.basicplatform.system.vo.SysUserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * <p>
@@ -25,11 +23,14 @@ import java.util.List;
 @RequestMapping("/system/sys-user")
 public class SysUserController {
 
-    @Autowired
-    private ISysUserService iSysUserService;
+    private final ISysUserService iSysUserService;
+
+    public SysUserController(ISysUserService iSysUserService) {
+        this.iSysUserService = iSysUserService;
+    }
 
     @GetMapping("get")
-    public Page<SysUser> getList(SysUserDto sysUserDto) {
+    public Page<SysUserVo> getList(SysUserDto sysUserDto) {
         return iSysUserService.getPageListByUser(sysUserDto);
     }
 

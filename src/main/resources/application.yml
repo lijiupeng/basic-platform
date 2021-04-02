@@ -1,11 +1,15 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /base
 # DataSource Config
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    # ³õÊ¼»¯Êı¾İ¿â½Å±¾
-#    schema: classpath:db/schema-h2.sql
-    # ³õÊ¼»¯Êı¾İ½Å±¾
-#    data: classpath:db/data-h2.sql
+    # åˆå§‹åŒ–æ•°æ®åº“è„šæœ¬
+    #    schema: classpath:db/schema-h2.sql
+    # åˆå§‹åŒ–æ•°æ®è„šæœ¬
+    #    data: classpath:db/data-h2.sql
     url: jdbc:mysql://49.232.24.37:3306/test?userUnicode=true&characterEncoding=UTF-8
     username: root
     password: txyMysql

@@ -3,6 +3,7 @@ package com.ljp.basicplatform.utils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.BeanUtils;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -33,13 +34,17 @@ public class DtUtils {
         try {
             // 用fori是因为list性能最好
             for (int i = 0; i < records.size(); i++) {
-                T t = tClass.newInstance();
+                T t = tClass.getConstructor().newInstance();
                 BeanUtils.copyProperties(records.get(0), t);
                 // 执行循环中所需要操作方法
                 if (consumer != null) consumer.accept(t);
                 list.add(t);
             }
         } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
