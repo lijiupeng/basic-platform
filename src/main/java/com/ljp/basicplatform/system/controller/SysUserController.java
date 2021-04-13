@@ -23,11 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/system/sys-user")
 public class SysUserController {
 
-    private final ISysUserService iSysUserService;
+    @Autowired
+    private ISysUserService iSysUserService;
 
-    public SysUserController(ISysUserService iSysUserService) {
-        this.iSysUserService = iSysUserService;
-    }
 
     @GetMapping("get")
     public Page<SysUserVo> getList(SysUserDto sysUserDto) {

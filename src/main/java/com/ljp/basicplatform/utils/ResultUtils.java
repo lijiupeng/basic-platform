@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * <p>
- *
+ *  返回值工具类：里面的状态码是引用http状态码作为业务码返回，这样易懂不需要再背一套状态码
  * </p>
  *
  * @author ljp
@@ -20,9 +20,18 @@ public class ResultUtils {
     private Object data;
     private String msg;
 
-    private static final Integer SUCCESS_CODE = 200;
-    private static final Integer FAIL_CODE = 500;
+
+    // 进入元空间，不在创建对象，直接引用性能好
     private static final String EMPTY_STRING = "";
+    /**
+     * 成功的返回状态
+     */
+    private static final Integer SUCCESS_CODE = 200;
+    /**
+     * 失败的返回状态
+     */
+    private static final Integer FAIL_CODE = 500;
+
 
     public static ResultUtils success() {
         return success(EMPTY_STRING, SUCCESS_CODE, EMPTY_STRING);

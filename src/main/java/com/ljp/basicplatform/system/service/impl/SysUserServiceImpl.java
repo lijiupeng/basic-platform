@@ -9,6 +9,7 @@ import com.ljp.basicplatform.system.service.ISysUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ljp.basicplatform.system.vo.SysUserVo;
 import com.ljp.basicplatform.utils.DtUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,6 +22,18 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements ISysUserService {
+
+    @Override
+    public SysUserVo login(String username, String password){
+        QueryWrapper<SysUser> sysUserQueryWrapper = new QueryWrapper<>();
+        sysUserQueryWrapper.eq("username", username);
+        sysUserQueryWrapper.eq("password", password);
+        SysUser sysUser = baseMapper.selectOne(sysUserQueryWrapper);
+        if(sysUser == null) return null;
+        SysUserVo sysUserVo = new SysUserVo();
+        BeanUtils.copyProperties(sysUser,sysUserVo);
+        return sysUserVo;
+    }
 
 
     @Override

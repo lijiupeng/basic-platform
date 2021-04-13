@@ -16,5 +16,7 @@ import com.ljp.basicplatform.system.vo.SysUserVo;
  */
 public interface ISysUserService extends IService<SysUser> {
 
+    SysUserVo login(String username, String password);
+
     Page<SysUserVo> getPageListByUser(SysUserDto sysUserDto);
 }

@@ -45,7 +45,7 @@ public class SecurityHandler implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         log.info("============================拦截器启动==============================");
-        log.info("============请求地址：" + request.getRequestURI());
+        log.info("============请求地址：{}",  request.getRequestURI());
         request.setAttribute("startTime", System.currentTimeMillis());
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Credentials", "true");
@@ -63,7 +63,7 @@ public class SecurityHandler implements HandlerInterceptor {
         if (null != token && "" != token) {
             Integer id = JwtUtils.unsign(token);
             if (null == id) {
-                responseMessage(response, response.getWriter(), ResultUtils.fail("登录凭证过期或无效"));
+                responseMessage(response, response.getWriter(), ResultUtils.fail(401,"登录凭证过期或无效"));
                 log.info("======================token过期或无效======================");
                 return false;
             } else {
@@ -71,7 +71,7 @@ public class SecurityHandler implements HandlerInterceptor {
             }
         } else {
             //失败
-            responseMessage(response, response.getWriter(), ResultUtils.fail("无登录凭证"));
+            responseMessage(response, response.getWriter(), ResultUtils.fail(401,"无登录凭证"));
             log.warn("============================无token信息============================");
             return false;
         }

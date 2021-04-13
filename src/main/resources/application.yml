@@ -10,6 +10,6 @@ spring:
     #    schema: classpath:db/schema-h2.sql
     # 初始化数据脚本
     #    data: classpath:db/data-h2.sql
-    url: jdbc:mysql://49.232.24.37:3306/test?userUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: txyMysql
+    url: jdbc:mysql://xxx:3306/test?zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&useSSL=false
+    username: xxx
+    password: xxx
