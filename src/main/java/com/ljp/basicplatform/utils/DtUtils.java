@@ -35,7 +35,7 @@ public class DtUtils {
             // 用fori是因为list性能最好
             for (int i = 0; i < records.size(); i++) {
                 T t = tClass.getConstructor().newInstance();
-                BeanUtils.copyProperties(records.get(0), t);
+                BeanUtils.copyProperties(records.get(i), t);
                 // 执行循环中所需要操作方法
                 if (consumer != null) consumer.accept(t);
                 list.add(t);
@@ -54,5 +54,37 @@ public class DtUtils {
         BeanUtils.copyProperties(page, newPage);
         newPage.setRecords(list);
         return newPage;
+    }
+
+    /**
+     * 分页对象转换成VO对象
+     *
+     * @param oldList     源
+     * @param tClass   需要转换泛型的实体
+     * @param consumer 转换中进行的操作
+     * @param <T>      泛型
+     * @return
+     */
+    public static <T> List<T> listToVo(List oldList, Class<T> tClass, Consumer<T> consumer) {
+        List<T> list = new ArrayList<>(oldList.size());
+        try {
+            // 用fori是因为list性能最好
+            for (int i = 0; i < oldList.size(); i++) {
+                T t = tClass.getConstructor().newInstance();
+                BeanUtils.copyProperties(oldList.get(i), t);
+                // 执行循环中所需要操作方法
+                if (consumer != null) consumer.accept(t);
+                list.add(t);
+            }
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

@@ -25,7 +25,7 @@ public class SecurityHandler implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,
                                 Exception arg3) throws Exception {
-        log.info("pd============================拦截器关闭==============================");
+        log.info("============================拦截器关闭==============================");
     }
 
     @Override

@@ -32,6 +32,11 @@ public class ResultUtils {
      */
     private static final Integer FAIL_CODE = 500;
 
+    /**
+     * 失败的返回状态
+     */
+    public static final Integer FAIL_CODE_SYSTEM = 599;
+
 
     public static ResultUtils success() {
         return success(EMPTY_STRING, SUCCESS_CODE, EMPTY_STRING);

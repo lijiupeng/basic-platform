@@ -3,8 +3,8 @@ package com.ljp.basicplatform.system.dto;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.springframework.lang.NonNull;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 /**
@@ -17,23 +17,26 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class SysUserDto {
+public class SysSaveUserDto {
 
     private Integer id;
 
     /**
      * 昵称
      */
+    @NotBlank
     private String nickname;
 
     /**
      * 账号
      */
+    @NotBlank
     private String username;
 
     /**
      * 密码
      */
+    @NotBlank
     private String password;
 
     /**
@@ -70,7 +73,5 @@ public class SysUserDto {
      * 备注
      */
     private String remakes;
-
-    private Page pageInfo;
 
 }

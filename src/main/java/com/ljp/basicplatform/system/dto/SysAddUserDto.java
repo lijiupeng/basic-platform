@@ -3,7 +3,6 @@ package com.ljp.basicplatform.system.dto;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.springframework.lang.NonNull;
 
 import java.time.LocalDateTime;
 
@@ -17,7 +16,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class SysUserDto {
+public class SysAddUserDto {
 
     private Integer id;
 

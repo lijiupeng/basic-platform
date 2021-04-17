@@ -10,6 +10,18 @@ spring:
     #    schema: classpath:db/schema-h2.sql
     # 初始化数据脚本
     #    data: classpath:db/data-h2.sql
-    url: jdbc:mysql://xxx:3306/test?zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&useSSL=false
-    username: xxx
-    password: xxx
+    url: jdbc:mysql://49.232.24.37:3306/test?zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: txyMysql
+  redis:
+    host: 49.232.24.37
+    database: 0
+    port: 6379
+    password:
+
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  level:
+    com.ljp.basicplatform.system.mapper: debug

@@ -2,6 +2,7 @@ package com.ljp.basicplatform.system.vo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,11 +19,10 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class SysUserVo implements Serializable {
+public class SysUserVo  {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
@@ -38,6 +38,7 @@ public class SysUserVo implements Serializable {
     /**
      * 密码
      */
+    @JsonIgnore
     private String password;
 
     /**
